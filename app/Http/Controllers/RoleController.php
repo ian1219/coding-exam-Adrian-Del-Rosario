@@ -52,20 +52,6 @@ class RoleController extends Controller
         return success_response('Role updated successfully', $role, 200);
     }
 
-    public function assignPermissions(Request $request, $id)
-    {
-        $role = find_role_or_fail($id);
-        $request->validate([
-            'permissions' => 'required|array',
-            'permissions.*' => 'exists:permissions,id',
-        ]);
-
-        $role->permissions()->sync($request->permissions);
-
-        return success_response('Permissions assigned successfully', $role->load('permissions'));
-    }
-
-
     public function destroy($id): JsonResponse
     {
         $role = find_role_or_fail($id);

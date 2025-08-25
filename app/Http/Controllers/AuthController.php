@@ -34,9 +34,7 @@ class AuthController extends Controller
             'data'        => [
                 'full_name' => $user->full_name,
                 'token'     => $token,
-                'user'        => $user->load('role.permissions'),
-                'permissions' => $user->permissions() ? $user->permissions()->pluck('name') : [],
-
+                'user'        => $user->load('roles'),
             ]
         ], 200);
     }
