@@ -17,9 +17,4 @@ class User extends Model
     {
         return $this->belongsTo(Role::class);
     }
-
-    public function permissions()
-    {
-        return $this->role ? $this->role->permissions() : null;
-    }
 }
