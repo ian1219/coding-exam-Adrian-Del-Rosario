@@ -61,7 +61,15 @@ class UserController extends Controller
     {
         $user = find_user_or_fail($id);
 
+        $role = $user->role;
+
         $user->delete();
+
+        if ($role) {
+            $role->is_active = true;
+            $role->save();
+        }
+
         return success_response('User Deleted successfully', null, 200);
     }
 }
