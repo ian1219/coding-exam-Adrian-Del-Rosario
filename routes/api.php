@@ -33,7 +33,5 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/delete/{id}', 'destroy');
     });
 
-    Route::post('/role/{id}/permissions', [RoleController::class, 'assignPermissions']);
-
     Route::post('/logout', [AuthController::class, 'logout']);
 });
