@@ -70,8 +70,8 @@ export default defineComponent({
         description.value = "";
 
         setTimeout(() => {
-          router.push("/dashboard");
-        }, 1000);
+          router.push("/roles");
+        }, 1300);
       } catch (err: any) {
         error.value = err.response?.data?.message || "Failed to create role.";
         success.value = "";
